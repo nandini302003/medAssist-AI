@@ -1,6 +1,8 @@
 # ml-api/app.py
 # Flask ML API - serves disease predictions via HTTP
 
+from pathlib import Path
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import joblib
@@ -12,8 +14,9 @@ app = Flask(__name__)
 CORS(app)  # Allow requests from other origins (React will call this)
 
 # ---------- Load the trained model and features ----------
-model = joblib.load("model.pkl")
-features = joblib.load("features.pkl")
+BASE_DIR = Path(__file__).resolve().parent
+model = joblib.load(BASE_DIR / "model.pkl")
+features = joblib.load(BASE_DIR / "features.pkl")
 
 print(f"Model loaded with {len(features)} symptoms and {len(model.classes_)} diseases")
 
