@@ -2,7 +2,7 @@
 // User profile page with account info and logout
 
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../components/sidebar";
+import Sidebar from "../components/Sidebar";
 import { User, Mail, Calendar, LogOut, Shield, Activity } from "lucide-react";
 import { useEffect, useState } from "react";
 

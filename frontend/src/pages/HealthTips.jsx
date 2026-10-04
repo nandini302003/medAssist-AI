@@ -1,7 +1,7 @@
 // src/pages/HealthTips.jsx
 // Static health tips and lifestyle advice
 
-import Sidebar from "../components/sidebar";
+import Sidebar from "../components/Sidebar";
 import {
   Heart,
   Droplet,

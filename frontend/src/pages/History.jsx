@@ -2,7 +2,7 @@
 // Shows all past predictions for the logged-in user
 
 import { useState, useEffect } from "react";
-import Sidebar from "../components/sidebar";
+import Sidebar from "../components/Sidebar";
 import API from "../api/axios";
 import { Calendar, Activity, ChevronRight } from "lucide-react";
 
