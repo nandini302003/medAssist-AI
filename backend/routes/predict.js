@@ -13,7 +13,7 @@ const router = express.Router();
 // ---------- GET /api/symptoms ----------
 router.get("/symptoms", async (req, res) => {
   try {
-    const response = await axios.get(`${process.env.ML_API_URL}/symptoms`);
+    const response = await axios.get(`${process.env.ML_API_URL}/symptoms`, {timeout: 60000,});
     res.json(response.data);
   } catch (err) {
     console.error("Symptoms fetch error:", err.message);
@@ -31,9 +31,8 @@ router.post("/predict", auth, async (req, res) => {
     }
 
     // Call ML API directly - return its response as-is
-    const mlResponse = await axios.post(`${process.env.ML_API_URL}/predict`, {
-      symptoms,
-    });
+    const mlResponse = await axios.post(
+  `${process.env.ML_API_URL}/predict`,{ symptoms },{ timeout: 60000 });
 
     const mlResult = mlResponse.data;
 
